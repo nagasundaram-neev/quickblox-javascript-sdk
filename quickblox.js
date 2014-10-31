@@ -191,7 +191,7 @@ function ChatProxy(service) {
         type = stanza.getAttribute('type'),
         body = stanza.querySelector('body'),
         invite = stanza.querySelector('invite'),
-        extraParams = stanza.querySelector('extraParams'),        
+        extraParams = stanza.querySelector('extraParams'),
         delay = type === 'groupchat' && stanza.querySelector('delay'),
         userId = type === 'groupchat' ? self.helpers.getIdFromResource(from) : self.helpers.getIdFromNode(from),
         message, extension, attachments, attach, attributes;
@@ -645,8 +645,8 @@ MucProxy.prototype.join = function(jid, callback) {
     id: id
   }).c("x", {
     xmlns: Strophe.NS.MUC
-  }).c("history", {
-    maxstanzas: 0
+  // }).c("history", {
+  //   maxstanzas: 0
   });
 
   if (typeof callback === 'function') connection.addHandler(callback, null, 'presence', null, id);
@@ -1471,16 +1471,15 @@ var config = {
     authSecret: ''
   },
   endpoints: {
-    api: 'api.quickblox.com',
-    chat: 'chat.quickblox.com',
-    muc: 'muc.chat.quickblox.com',
+    api: 'apituul.quickblox.com',
+    chat: 'chattuul.quickblox.com', 
+    muc: 'muc.chattuul.quickblox.com', 
     turn: 'turnserver.quickblox.com',
-    s3Bucket: 'qbprod'
+    s3Bucket:  'qb-tuul'
   },
   chatProtocol: {
-    //bosh: 'http://chat.quickblox.com:8080',
-    bosh: 'https://chat.quickblox.com:8081', // With SSL
-    websocket: 'ws://chat.quickblox.com:5290',
+    bosh: 'http://chattuul.quickblox.com:5280', // With SSL 
+    //websocket: '', //'ws:
     active: 1
   },
   urls: {
